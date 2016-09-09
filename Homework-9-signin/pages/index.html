@@ -1,0 +1,49 @@
+﻿<html>
+	<head>
+		<title>注册</title>
+		<meta charset="utf-8">
+		<link type="text/css" rel="stylesheet" href="Homework-9-signin/pages/css/index.css" />
+		<link type="text/css" rel="stylesheet" href="framework/mUIFrame.css" />
+	</head>
+	
+	<body>
+	<div id="content">
+		<div id="form" >
+			<h1>注册</h1>
+			<div class="input_field">
+				<div class="input_hint">用户名</div>
+				<div class="input"> 
+					<input id="userName" class="mLineInput" onchange="onFocusChange()" onkeyup="onInputChange()"></input>
+				</div>
+				<div id="userName_error_hint" class="error_hint"></div>
+			</div>
+			<div class="input_field">
+				<div class="input_hint">学号</div>
+				<div class="input"> 
+					<input id="id" class="mLineInput" onchange="onFocusChange()" onkeyup="onInputChange()"></input>
+				</div>
+				<div id="id_error_hint" class="error_hint">
+			</div>
+			<div class="input_field">
+				<div class="input_hint">电话</div>
+				<div class="input"> 
+					<input id="phoneNumber" class="mLineInput" onchange="onFocusChange()" onkeyup="onInputChange()"></input>
+				</div>
+				<div id="phoneNumber_error_hint" class="error_hint">
+			</div>
+			<div class="input_field">
+				<div class="input_hint">邮箱</div>
+				<div class="input"> 
+					<input id="email" class="mLineInput" onchange="onFocusChange()" onkeyup="onInputChange()"></input>
+				</div>
+				<div id="email_error_hint" class="error_hint">
+			</div>
+			<div class="buttons">
+				<button class="mNoShadowButton button" onclick="onClearClick()">重置</button>
+				<button class="mNoShadowButton button" onclick="onRegistClick()">注册</button>
+			</div>
+		</div>
+	</div>
+	</body>
+	<script src="Homework-9-signin/pages/scripts/index.js" language="javascript"></script>
+</html>
