@@ -1,4 +1,4 @@
-﻿
+
 /**
  *
  *  Description: 一个简易的CSS框架，包括按钮、阴影、输入框等样式
@@ -52,7 +52,7 @@
 	margin-bottom: 8px;
 	vertical-align: middle;
 	color: #fff;
-	background-color: var(--color-primary);
+	background-color: #448aff;
 	text-align: center;
 	letter-spacing: .5px;
 	transition: .2s ease-out;
@@ -66,7 +66,7 @@
 }
 
 .mButton:active {
-	background-color: var(--color-accent);
+	background-color: #303f9f;
 	box-shadow: 0 8px 15px 0 rgba(0, 0, 255, 0.18), 0 4px 15px 0 rgba(0, 0, 255, 0.15);
 }
 
@@ -80,7 +80,7 @@
 }
 
 .mNoShadowButton:active {
-	background-color: var(--color-accent);
+	background-color: #303f9f;
 }
 
 
@@ -144,14 +144,14 @@
 	border-bottom-width: 2px;
 	border-bottom-style: solid;
 	outline: none;
-	border-bottom-color: var(--color-primary);
+	border-bottom-color: #448aff;
 	padding: 16px 16px 16px 16px;
 	font-size: 20px; 
 }
 
 .mLineInput:focus, .mLineInputError:focus {
 	border-style: solid;
-	border-color: var(--color-primary);
+	border-color: #448aff;
 	border-width: 2px;
 }
 

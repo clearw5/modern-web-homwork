@@ -12,7 +12,7 @@ var ROOT_DIR = "../";
 
 function staticFileServer(request, response){
 	if(request.url == "/"){
-		request.url = "/index.html";
+		request.url = "/Homework-9-signin/pages/index.html";
 	}
 	var urlObj = url.parse(request.url);
 	fs.readFile(ROOT_DIR + urlObj.pathname, function(error, data){
