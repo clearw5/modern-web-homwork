@@ -1,43 +1,54 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>RingShape</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
+	<head>
+		<title>RingShape</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script type="text/javascript" src="scripts/index.js"></script>
+	</head>
 	<body>
-		<div id="pageBar">
+		<div id="body_container">
 			<div class="mNavigation">
 				<ul>
-					<li id="homeworks" class="mDropDownList">
-						<p>Homework</p>
-						<ul >
-							<li>Recipe</li>
-							<li>Ring Menu</li>
-						</ul>
-					</li>
-
-					<li>
-						<ul class="mDropDownList">
-							<p>Homework</p>
-							<ul >
-								<li>Recipe</li>
-								<li>Ring Menu</li>
-							</ul>
+					<li id="home">Home</li>
+					<li id="homework" class="mNavigationSelected">Homework</li>
+					<li id="github">GitHub</li>
+					<li id="blog">Blog</li>
+					<li id="product" class="mDropDownListContainer">
+						Projects
+						<ul class="mDropDownList z-depth-3">
+							<li id="stardust_calculator"> 星尘计算器 </li>
+							<li id="phone_prohibitor"> 不准玩手机 </li>
+							
 						</ul>
 					</li>
 				</ul>
+				<ul id="right_buttons">
+						<li>Login</li>
+						<li id="right_button_signin">Sign in</li>
+						<li>About</li>
+						<li>Feedback</li>
+				</ul>
 			</div>
 
-			<div id="pageBarDisplayField">
-				<img id="pageBarLeft" class="pageBarControl" src="images/ic_chevron_left_white_36pt_2x.png">
-				<div id="centerText">
-					RingShape
+			<div id="bottom_container">
+				<div class="mSideMenu">
+					<ul id="side_menu">
+						<li id="recipe" class="mSideMenuSelected">Homework 1 Recipe</li>
+						<li id="ring_menu">Homework 3 RingMenu</li>
+						<li id="fifteen_puzzles">Homework 7 Fifteen Puzzles</li>
+						<li id="sign_in">Homework 9 Sign in</li>
+						<li id="login">Homework 11 Login</li>
+					</ul>
 				</div>
-				<img id="pageBarRight" class="pageBarControl" src="images/ic_chevron_right_white_36pt_2x.png">
+				<div id="content">
+					<div id="image_container">
+						<img id="homework_screenshoot" src="images/screenshoot_recipe.png" alt="screenshoot">
+					</div>
+				</div>
 			</div>
 		</div>
 
 
 	</body>
-	<script type="text/javascript" src="scripts/index.js"></script>
 </html>
