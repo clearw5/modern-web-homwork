@@ -2,7 +2,6 @@
 var links = {
 	home: "http://ringshape.com",
 	github: "http://github.com/hyb1996",
-	homework: "http://60.205.176.122/homepage/homework.html",
 	stardust_calculator: "http://shouji.baidu.com/software/9807244.html",
 	blog: "http://60.205.176.122/homepage/blog.html",
 	phone_prohibitor: "http://ringshape.com/projects/phone_prohibitor.html",
@@ -22,31 +21,49 @@ var homeworkImages = {
 };
 
 var screenshoot;
-var screenshootContainer;
 var sideMenuSelectedItem;
+var sideMenu;
+var isSideMenuVisible = true;
 var imageBuffer = {};
 imageBuffer.state = {};
 var loadingImage;
 
 window.onload = function() {
+	initElements();
+	setupClickListener();
+	setContentImage("recipe");
+	//setTimeout(preloadImages, 100);
+}
+
+
+function initElements(){
+	screenshoot = document.getElementById("homework_screenshoot");
+	sideMenuSelectedItem = document.getElementById("recipe");
+	sideMenu = document.getElementById("side_menu");
+	loadingImage = new Image();
+	loadingImage.src = "images/loading.gif";
+}
+
+function setupClickListener(){
 	for(var id in links){
 		setClickToLink(document.getElementById(id), links[id]);
 	}
+
 	for(var id in homeworkImages){
 		var element = document.getElementById(id);
 		element.onclick = function(event){
 			onSideMenuClick(event.target);
 		};
 	}
-	screenshoot = document.getElementById("homework_screenshoot");
-	screenshootContainer = document.getElementById("image_container");
-	sideMenuSelectedItem = document.getElementById("recipe");
-	loadingImage = new Image();
-	loadingImage.src = "images/loading.gif";
+
+	document.getElementById("homework").onclick = function(){
+		this.className = isSideMenuVisible ? "" : "mNavigationSelected";
+		onSideMenuDrag();
+	};
+
 	loadingImage.onclick = function(){
 		window.location.href = links[sideMenuSelectedItem.id];
 	};
-	setContentImage("recipe");
 }
 
 function setClickToLink(element, link){
@@ -79,18 +96,11 @@ function setContentImage(id){
 		}
 		imageBuffer.state[id] == "loading";
 		setTimeout(function(){
-			var img = new Image();
-			img.onclick = function(){
-				window.location.href = links[sideMenuSelectedItem.id];
-			};
-			img.src = "images/" + homeworkImages[id];
-			img.onload = function(){
-				imageBuffer[id] = img;
-				imageBuffer.state[id] == "loaded";
-				if(currentImageId == id){
-					setScreenshootImage(img);
-				}
-			};
+			loadImage(id, function(img){
+					if(currentImageId == id){
+						setScreenshootImage(img);
+					}
+				});
 		}, 100);
 	}
 }
@@ -101,24 +111,34 @@ function setScreenshootImage(img){
 }
 
 
-function preloadImages(){
-	for(var id in homeworkImages){
-		if(imageBuffer.state[id] != "loading"){
-			loadImage(id);
-		}
+function loadImage(id, callback){
+	if(imageBuffer[id] != undefined || imageBuffer.state[id] == "loading"){
+		return;
 	}
+	var img = new Image();
+	img.onclick = function(){
+		window.location.href = links[sideMenuSelectedItem.id];
+	};
+	img.src = "images/" + homeworkImages[id];
+	img.onload = function(){
+		imageBuffer[id] = img;
+		imageBuffer.state[id] == "loaded";
+		callback(img);
+	};
+	img.onerror = function(){
+		img.src = "images/sorry-middle.jpg";
+	};
 }
 
-function loadImage(id){
-	if(imageBuffer[id] == undefined){
-		var img = new Image();
-		img.onclick = function(){
-			window.location.href = links[sideMenuSelectedItem.id];
-		};
-		img.src = "images/" + homeworkImages[id];
-		img.onload = function(){
-			imageBuffer[id] = img;
-			imageBuffer.state[id] == "loaded";
-		};
+
+function onSideMenuDrag(){
+	isSideMenuVisible = !isSideMenuVisible;
+	document.getElementById("content").style.marginLeft = isSideMenuVisible ? "175px" : "0px";
+	sideMenu.style.left =  isSideMenuVisible ? "0px" : "-350px";
+}
+
+function preloadImages(){
+	for(var id in homeworkImages){
+		loadImage(id, function(img){});
 	}
 }
