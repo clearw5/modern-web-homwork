@@ -14,7 +14,10 @@ var fs = require("fs");
 var urlTool = require("url");
 
 var userDao = require("./user_dao.js");
-console.log("%j", userDao.add({"aa": "bb"}));
+//userDao.add({"userName": "i", "id": "1"});
+userDao.remove("i");
+userDao.printAll();
+userDao.close();
 
 function queryServer(request, response){
 	if(request.method == "GET"){
