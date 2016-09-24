@@ -4,6 +4,7 @@ body {
 	height: 100%;
 	padding: 0px;
 	margin: 0px;
+	font-weight: bold;
 }
 
 #at-plus-container {
@@ -19,20 +20,21 @@ body {
 	bottom: 28px;
 }
 
-#button {
+  /*测试用。当鼠标移到大@范围时触发动画。*/
+#button-big {
 	width: 50px;
 	height: 50px;
 	margin-left: 65px;
 	margin-top: 136px;
+	background-color: #cccccc;
+	border: 1px solid black;
 }
 
-#button-1 {
+#button {
 	width: 25px;
 	height: 25px;
 	margin-left: 77.5px;
 	margin-top: 148.5px;
-	background-color: #cccccc;
-	border: 1px solid black;
 }
 
 #info-bar {
@@ -43,7 +45,6 @@ body {
 	top: 161px;
 	border-radius: 50%;
 	background-color: #7e7e7e;
-	font-weight: bold;
 	text-align: left;
 	overflow: hidden;
 	transition: all 0.5s;
@@ -93,7 +94,8 @@ body {
 }
 
 
-/* info-bar */
+/* info-bar，也就是最上面的大圆的子元素样式 */
+
 
 .page {
 	list-style: none;
@@ -101,23 +103,26 @@ body {
 }
 
 .user {
+	margin-top: -8px;
 	font-size: 18px;	
 	margin-bottom: 14px;
 }
 
 .user img {
 	vertical-align: top;
-	margin-right: 12px;
+	margin-right: 7px;
 }
 
 .comment {
-	font-size: 26px;
-	margin: 0 auto;
+	font-size: 34px;
+	margin-left: -12px;
+	margin-top: -8px;
 }
 
 .comment img {
 	vertical-align: bottom;
-	margin-right: 12px;
+	width: 26px;
+	margin-right: 10px;
 }
 
 .mine {
@@ -144,7 +149,7 @@ body {
 }
 
 
- /* control-ring-container */
+ /* control-ring-container，也就是下面一圈菜单的子元素样式 */
 
 .button {
 	width: 32px;
@@ -171,42 +176,48 @@ body {
 #button:hover .mask {
 	left: 11px;
 	top: 0px;
-	background-image: url("assets/images/mask.png") ;
+	background-image: url("assets/images/mask.png");
 }
 
 #button:hover .history {
 	left: 0px;
 	top: 38px;
-	background-image: url("assets/images/history.png") ;
+	background-image: url("assets/images/history.png");
 }
 
 #button:hover .setting {
 	left: 48px;
 	top: 96px;
-	background-image: url("assets/images/setting.png") ;
+	background-image: url("assets/images/setting.png");
 }
 
 #button:hover .message {
 	left: 16px;
 	top: 75px;
-	background-image: url("assets/images/message.png") ;
+	background-image: url("assets/images/message.png");
 }
 
 #button:hover .sign {
 	left: 91px;
 	top: 93px;
-	background-image: url("assets/images/signin.png") ;
+	background-image: url("assets/images/signin.png");
 }
 
+
 .unread {
+	opacity: 0;
+}
+
+#button:hover .unread {
 	width: 20px;
 	height: 20px;
 	position: absolute;
 	left: 21px;
 	top: -5px;
 	text-align: center;
-	font-weight: bold;
+	font-size: 16px;
 	color: white;
 	border-radius: 50%;
 	background-color: rgba(249, 55, 49, 1);
+	opacity: 1;
 }

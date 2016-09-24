@@ -29,10 +29,14 @@ var userDao = {
 	},
 	
 	add: function(user, callback){
+		console.log("add");
 		collectionHelper.execute(function(){
 			userDao.isConflict(user, function(isConflict){
 				if(!isConflict){
-					userDao.addUncheck(user, callback);
+					userDao.addUncheck(user);
+					callback(true);
+				}else{
+					callback(false);
 				}
 			});
 		});
@@ -40,7 +44,7 @@ var userDao = {
 	
 	remove: function(userName, callback){
 		collectionHelper.execute(function(){
-			collectionHelper.collection.deleteOne({ "userName": userName}, function(err, result) {
+			collectionHelper.collection.deleteOne({"name": userName}, function(err, result) {
 				if(callback){
 					callback(result);
 				}
@@ -58,6 +62,16 @@ var userDao = {
 		});
 	},
 	
+	getUser: function(name, callback){
+		collectionHelper.execute(function(){
+			collectionHelper.collection.findOne({"name": name}, function(error, result){
+				console.log(result);
+				if(callback){
+					callback(result);
+				}
+			});
+		});
+	},
 	
 	printAll: function(){
 		collectionHelper.execute(function(){

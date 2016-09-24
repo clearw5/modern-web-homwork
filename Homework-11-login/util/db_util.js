@@ -20,11 +20,14 @@ var DbUtil = {
 
 	collectionExists: function collectionExists(db, collectionName){
 		return new Promise(function(resolve, reject){
-			console.log("aaa");   
+			 resolve(false); 
 			 db.collectionNames(function(err, collections){
-			       console.log(collections);  
-			       resolve(false); 
-			  }); 
+			 	 if(err){
+			 	  	console.log("collectionExists: Error: %j", err);
+			 	  }
+			      console.log(collections);  
+			      resolve(false); 
+			 }); 
 			
 			/*
 			db.listCollections({name: collectionName}).toArray().then(function(items) {
@@ -68,7 +71,6 @@ function CollectionHelper(dbName, collectionName){
 		DbUtil.ensureCollection(db, collectionName).then(function(collection){
 			_this.connected = true;
 			_this.collection = collection;
-			
 			executeOperationQueue(_this.operationQueue);
 		}, function(err){
 			console.log("Error: " + err);
