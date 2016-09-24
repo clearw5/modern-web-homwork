@@ -48,6 +48,7 @@ body {
 	text-align: left;
 	overflow: hidden;
 	transition: all 0.5s;
+	transition-delay: 0.5s;
 }
 
 #button:hover #info-bar {
@@ -55,6 +56,7 @@ body {
 	height: 128px;
 	left: 25px;
 	top: 0px;
+	transition-delay: 0s;
 }
 
 #control-ring-container {
@@ -77,9 +79,10 @@ body {
 	left: 77.5px;
 	top: 148.5px;
 	border-radius: 50%;
-	background: url("assets/images/atplus_white.png") #7e7e7e no-repeat center;
+	background: url("assets/images/atplus_white.png") rgba(152, 155, 211, 1) no-repeat center;
 	background-size: 22px 16px;
 	transition: all 0.5s;
+	transition-delay: 0.8s;
 }
 
 #button:hover .apb {
@@ -91,6 +94,7 @@ body {
 	border-radius: 50%;
 	background: url("assets/images/atplus_green.png") rgba(48, 63, 159, 1) no-repeat center;
 	background-size: 35px 25px;
+	transition-delay: 0s;
 }
 
 
@@ -165,50 +169,62 @@ body {
 	background-size: 17px 17px;
 	opacity: 0;
 	transition: all 0.5s;
+	transition-delay: 0.5s;
 }
 
 
 #button:hover .button {
 	opacity: 1;
+	transition-delay: 0s;
 }
 
+.mask {
+	background-image: url("assets/images/mask.png");
+}
 
 #button:hover .mask {
 	left: 11px;
 	top: 0px;
-	background-image: url("assets/images/mask.png");
+}
+
+.history {
+	background-image: url("assets/images/history.png");
 }
 
 #button:hover .history {
 	left: 0px;
 	top: 38px;
-	background-image: url("assets/images/history.png");
+}
+
+.setting {
+	background-image: url("assets/images/setting.png");
 }
 
 #button:hover .setting {
 	left: 48px;
 	top: 96px;
-	background-image: url("assets/images/setting.png");
+}
+
+.message {
+	background-image: url("assets/images/message.png");
 }
 
 #button:hover .message {
 	left: 16px;
 	top: 75px;
-	background-image: url("assets/images/message.png");
+}
+
+.sign {
+	background-image: url("assets/images/signin.png");
 }
 
 #button:hover .sign {
 	left: 91px;
 	top: 93px;
-	background-image: url("assets/images/signin.png");
 }
 
 
 .unread {
-	opacity: 0;
-}
-
-#button:hover .unread {
 	width: 20px;
 	height: 20px;
 	position: absolute;
@@ -219,5 +235,11 @@ body {
 	color: white;
 	border-radius: 50%;
 	background-color: rgba(249, 55, 49, 1);
+	opacity: 0;
+	transition-delay: 0.5s;
+}
+
+#button:hover .unread {
 	opacity: 1;
+	transition-delay: 0s;
 }
