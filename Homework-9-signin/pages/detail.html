@@ -2,24 +2,25 @@
 	<head>
 		<title>注册</title>
 		<meta charset="utf-8">
-		<style type="text/css">
-			
-		</style>
+		<link type="text/css" rel="stylesheet" href="css/detail.css" />
+		<link type="text/css" rel="stylesheet" href="framework/mUIFrame.css" />
 	</head>
 	
 	<body>
-		<h1>用户详情</h1>
-		<div class="info"> 
-			<span class="hint">用户名：</span><span id="userName">&userName;</span>
-		</div>
-		<div class="info"> 
-			<span class="hint">学号：</span><span id="id">&id;</span>
-		</div>
-		<div class="info"> 
-			<span class="hint">电话：</span><span id="phoneNumber">&phoneNumber;</span>
-		</div>
-		<div class="info"> 
-			<span class="hint">邮箱：</span><span id="email">&email;</span>
+		<div id="container" class="z-depth-3">
+			<h1>用户详情</h1>
+			<div class="info"> 
+				<span class="hint">用户名：</span><span id="userName">&user.name;</span>
+			</div>
+			<div class="info"> 
+				<span class="hint">学号：</span><span id="id">&user.id;</span>
+			</div>
+			<div class="info"> 
+				<span class="hint">电话：</span><span id="phoneNumber">&user.phone;</span>
+			</div>
+			<div class="info"> 
+				<span class="hint">邮箱：</span><span id="email">&user.email;</span>
+			</div>
 		</div>
 	</body>
 	

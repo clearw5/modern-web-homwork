@@ -1,0 +1,129 @@
+
+/* 
+ * 取色来源：
+ *    http://item.yhd.com/item/11942089
+ */
+
+@font-face {
+  font-family: "digital-7";
+  src: url("http://schulzmarcel.de/x/fonts/digital-7_mono.ttf");
+}
+
+
+body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	-moz-user-select:none;
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+ }
+
+#calculator {
+	width: 360px;
+	height: 550px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+	padding-top: 50px;
+	text-align: center;
+ 	border-radius: 15px;
+ 	background: linear-gradient(to right, rgb(219, 220, 214), rgb(238, 235, 238));
+ 	box-shadow: /* 计算器上方阴影 */
+ 				inset 0px 5px 5px rgb(232,234,227),
+ 				/* 计算器上方阴影下的亮线，让人感觉有一条凸线 */ 
+ 	            inset 0px 8px 8px #ffffff,
+ 	            /* 计算器上方亮线下的阴影 */ 
+ 	            inset 0px 12px 10px #e0e0e0; 
+
+}
+
+#display {
+	width: 300px;
+	height: 90px;
+	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: digital-7, sans-serif;
+	color: black;
+	font-weight: bold;
+	text-align: center;
+	/* 右边有光线，所以这里有渐变，右边颜色比较明亮 */
+	background: linear-gradient(to right, rgb(96, 105, 78), rgb(161, 176, 131));
+	border-radius: 10px;
+	box-shadow: /* 屏幕右下阴影 */
+ 				inset -2px -2px 2px 2px rgb(94, 81, 55),
+				/* 屏幕左上阴影 */
+				inset 3px 2px 3px rgb(81, 87, 62);
+
+}
+
+#input {
+	height: 40px;
+	padding-left: 10px;
+	padding-top: 5px;
+	margin-right: 5px;
+	text-align: left;
+	font-size: 30px;
+	overflow: hidden;
+}
+
+#result {
+	height: 40px;
+	font-size: 40px;
+	text-align: right;
+	margin-right: 5px;
+}
+
+#delimit-rectangle {
+	height: 25px;
+	background-color: rgb(182, 183, 177);
+	border-bottom: 2px solid rgb(128, 130, 125);
+	/* 右边光线 */
+	box-shadow: inset -3px 0px 2px rgb(216, 218, 213);
+}
+
+#delimit-arc {
+	height: 10px;
+	background-color: rgb(182, 183, 177);
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	margin-bottom: 10px;
+}
+
+button.button {
+	outline: none;
+	text-align: center; 
+	background: linear-gradient(to right, rgb(251, 252, 251), rgb(241, 242, 242));
+	border-radius: 6px;
+	box-shadow: /* 光线 */
+				inset 0px 2px 2px rgb(232,234,234),
+				inset 0px 4px 5px 0px #ffffff,
+			 	inset 0px 6px 5px #e0e0e0,
+			 	/* 黑色边框 */
+				-1px 0px 0px 1.5px rgb(64,64,64),
+				1px 1px 0px 1.5px rgb(74,74,74),
+				/* 外边框 */
+				1px 0px 0px 4px #949494,
+				-2px -2px 0px 3px #949494;
+}
+
+
+button.big {
+	width: 50px;
+	height: 40px;
+	margin: 8px 4.5px;
+	font-size: 18px;
+}
+
+button.small {
+	width: 40px;
+	height: 30px;
+	margin: 8px 3.5px;
+	font-size: 14px;
+}
+
+#big-button-line-first {
+	margin-top: 8px;
+}

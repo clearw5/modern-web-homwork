@@ -1,0 +1,27 @@
+
+.block {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-color: green;
+}
+
+.space {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-color: white;
+}
+
+.row {
+	height: 20px;
+}
+
+.start {
+	background-color: blue;
+}
+
+.end {
+	background-color: red;
+}
+

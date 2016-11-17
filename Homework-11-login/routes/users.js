@@ -35,13 +35,12 @@ router.post('/login', function(req, res, next){
 router.post('/signin', function(req, res, next) {
 	var user = {name: req.body.username, password: req.body.password, email: req.body.email, 
 		phone: req.body.phone, id: req.body.id};
-	userManager.add(user).then(function(result){
-		if(result.ok){
-			req.session.username = req.body.username;
-			res.redirect('/detail');
-		}else{
-
-		}
+	userManager.add(user).then(function(){
+		req.session.username = req.body.username;
+		res.redirect('/detail');
+	}, function(error){
+		console.log("error: %j", error);
+		res.redirect('/signin');
 	});
 });
 

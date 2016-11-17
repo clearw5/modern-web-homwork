@@ -10,7 +10,7 @@ require('http').createServer(function (request, response) {
         fileServer.serve(request, response, function (err, result) {
             if (err) { // There was an error serving the file
             	if(err.status == 404){
-            		fileServer.serveFile('404/not-found.html', 404, {}, request, response);
+            		fileServer.serveFile('404/404.html', 404, {}, request, response);
             	}else{
             		 console.error("Error serving " + request.url + " - " + err.message);
 

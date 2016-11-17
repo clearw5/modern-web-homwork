@@ -1,0 +1,54 @@
+
+body {
+	background-color: #eee;
+	
+}
+
+h1, h2 {
+	text-align: center;
+}
+
+table {
+	background-color: #ffffff;
+	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	min-width: 500px;
+	margin:  0 auto;
+	border-collapse: collapse;
+	font-family: 'Roboto', sans-serif;
+}
+
+tr {
+	border: 1px solid #e0e0e0; 
+	height: 40px;
+}
+
+td {
+	padding: 0px 8px;
+	text-align: center;
+	color:  rgba(0, 0, 0, 0.87);
+	border: 1px solid #e0e0e0; 
+}
+
+
+th {
+	color:  rgba(0, 0, 0, 0.54);
+	cursor: pointer;
+	border: 1px solid #e0e0e0; 
+}
+
+th.ascend {
+	background: url('ascend.png') 100% 50% no-repeat;
+	background-size: 10px 10px;
+}
+
+th.descend {
+	background: url('descend.png') 100% 50% no-repeat;
+	background-size: 10px 10px;
+}
+
+.alternate {
+	background-color: #f0f0f0;
+}
+#todo {
+	margin-bottom: 50px;
+}

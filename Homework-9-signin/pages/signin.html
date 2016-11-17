@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title>注册</title>
+		<meta charset="utf-8">
+		<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+		<link type="text/css" rel="stylesheet" href="css/signin.css" />
+		<link type="text/css" rel="stylesheet" href="framework/mUIFrame.css" />
+		<script src="scripts/index.js" language="javascript"></script>
+	</head>
+	
+	<body>
+		<div id="container">
+			<div id="content">
+				<form action="" method="POST">
+					<h1>注册</h1>
+					<div class="input_field">
+						<div class="input_hint">用户名</div>
+						<div class="input"> 
+							<input name="name" id="name" class="mLineInput" value="&user.name;"></input>
+						</div>
+						<div id="name_error" class="error_hint">&error.name;</div>
+					</div>
+					<div class="input_field">
+						<div class="input_hint">学号</div>
+						<div class="input"> 
+							<input name="id" id="id" class="mLineInput" value="&user.id;"> </input>
+						</div>
+						<div id="id_error" class="error_hint">&error.id;</div>
+					</div>
+					<div class="input_field">
+						<div class="input_hint">电话</div>
+						<div class="input"> 
+							<input name="phone" id="phone" class="mLineInput"  value="&user.phone;"></input>
+						</div>
+						<div id="phone_error" class="error_hint">&error.phone;</div>
+					</div>
+					<div class="input_field">
+						<div class="input_hint">邮箱</div>
+						<div class="input"> 
+							<input name="email" id="email" class="mLineInput"  value="&user.email;"></input>
+						</div>
+						<div id="email_error" class="error_hint">&error.email;</div>
+					</div>
+					<div id="buttons">
+						<input type="submit" value="注册" id="regist" class="button mNoShadowButton"></input>
+						<input type="reset" value="清空" id="clear" class="button mNoShadowButton"></input>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

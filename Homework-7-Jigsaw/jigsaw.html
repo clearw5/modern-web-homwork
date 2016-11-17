@@ -3,40 +3,32 @@
 		<title>Jigsaw</title>
 		<meta charset="utf-8">
 		<link type="text/css" rel="stylesheet" href="css/jigsaw.css"/>
-		
-		<link type="text/css" rel="stylesheet" href="../framework/mUIFrame.css" />
-		
+		<link type="text/css" rel="stylesheet" href="css/mUIFrame.css" />
+		<script src="scripts/jigsaw.js" language="javascript"></script>
 	</head>
 	
 	<body>
 	<div class="center z-depth-5" id="content">
 		<h2 class="center">拼图游戏</h2>
+		<p id="win_hint">你赢了</p>
 		<div id="puzzles_space">
 			<div class="center" id="puzzles" >
-				<div class="center">
-					<div class="puzzle_image" id="image0"></div>
-					<div class="puzzle_image" id="image1"></div>
-					<div class="puzzle_image" id="image2"></div>
-					<div class="puzzle_image" id="image3"></div>
-				</div>
-				<div class="center">
-					<div class="puzzle_image" id="image4"></div>
-					<div class="puzzle_image" id="image5"></div>
-					<div class="puzzle_image" id="image6"></div>
-					<div class="puzzle_image" id="image7"></div>
-				</div>
-				<div class="center">
-					<div class="puzzle_image" id="image8"></div>
-					<div class="puzzle_image" id="image9"></div>
-					<div class="puzzle_image" id="image10"></div>
-					<div class="puzzle_image" id="image11"></div>
-				</div>
-				<div class="center">
-					<div class="puzzle_image" id="image12"></div>
-					<div class="puzzle_image" id="image13"></div>
-					<div class="puzzle_image" id="image14"></div>
-					<div class="puzzle_blank" id="puzzle_blank"></div>
-				</div>
+				<div class="puzzle_image"></div>
+				<div class="puzzle_image"></div>
+				<div class="puzzle_image"></div>
+				<div class="puzzle_image"></div>
+				<div class="puzzle_image"></div>
+				<div class="puzzle_image"></div>
+				<div class="puzzle_image"></div>
+				<div class="puzzle_image"></div>
+				<div class="puzzle_image"></div>
+				<div class="puzzle_image"></div>
+				<div class="puzzle_image"></div>
+				<div class="puzzle_image"></div>
+				<div class="puzzle_image"></div>
+				<div class="puzzle_image"></div>
+				<div class="puzzle_image"></div>
+				<div id="puzzle_blank"></div>
 			</div>
 		</div>
 		<div id="bottom">
@@ -50,15 +42,15 @@
 			</div>
 			<div id="buttons">
 				<div class="center button">
-					<a id="restart" class="mButton button" title="打乱拼图并重新开始游戏" onclick="onRestartClick()">开始游戏</a>
+					<a id="restart" class="mButton button" title="打乱拼图并重新开始游戏">开始游戏</a>
 				</div>
 				<div class="center button">
-					<a class="mButton button" title="打乱拼图并重新开始游戏" onclick="onTestClick()">随机下一步</a>
+					<a id="auto" class="mButton button" title="自动完成拼图">自动拼图</a>
 				</div>
 			</div>
 		</div>
 	</div>
 	</body>
 	
-	<script src="scripts/jigsaw.js" language="javascript"></script>
+	
 </html>

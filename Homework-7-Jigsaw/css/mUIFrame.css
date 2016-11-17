@@ -1,0 +1,164 @@
+
+/**
+ *
+ *  Description: 一个简易的CSS框架，包括按钮、阴影、输入框等样式
+ *               将根据需要不断增加和完善，或以其他框架代替
+ *  Author:      Huang Yibin
+ *  Create:      2016/9/3
+ * 
+ */
+
+/**
+ * 使用前务必查阅 https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables#Browser_compatibility  
+ *     以确定css变量的浏览器兼容性。
+ * 若要保证浏览器兼容，请在每个变量后加上默认颜色
+ * 目前提供的控件、类有：
+ *   mButton: 鼠标悬停变色与浮起，点击颜色加深的按钮
+ *   mNoShadowButton: mButton的无阴影版本
+ *   z-depth-0 ~ z-depth-5: 不同高度的阴影效果
+ *   mInput: 圆角输入框
+ *   mLineInput: 不输入时只有下边框的输入框，当输入时变成长方形
+ *   mLineInputError: mLineInput 的错误样式
+ */
+ 
+ 
+ /* 一些颜色变量以方便更改、覆盖颜色，在某些浏览器可能不支持 */
+:root {
+  /* 初始颜色，例如按钮颜色 */
+  --color-primary: #448aff;
+  
+  /* 加深，例如按钮鼠标悬停颜色*/
+  --color-primary-dark: #1976d2;
+  
+  /* 强调色，例如按钮点击颜色 */
+  --color-accent: #303f9f;
+  
+  /* 错误色，例如文本框输入内容错误时文本框颜色 */
+  --color-error: red;
+}
+
+
+.mButton, .mNoShadowButton {
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+	margin-left: 15px;
+	margin-right: 15px;
+	border-radius: 5px;
+	display: inline-block;
+	height: 36px;
+	line-height: 36px;
+	padding: 0 2rem;
+	outline:none;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	vertical-align: middle;
+	color: #fff;
+	background-color: #448aff;
+	text-align: center;
+	letter-spacing: .5px;
+	transition: .2s ease-out;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.mButton:hover {
+	box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+	background-color: var(--color-primary-dark);
+}
+
+.mButton:active {
+	background-color: #303f9f;
+	box-shadow: 0 8px 15px 0 rgba(0, 0, 255, 0.18), 0 4px 15px 0 rgba(0, 0, 255, 0.15);
+}
+
+.mNoShadowButton {
+	box-shadow: none;
+	border-style: none;
+}
+
+.mNoShadowButton:hover {
+	background-color: var(--color-primary-dark);
+}
+
+.mNoShadowButton:active {
+	background-color: #303f9f;
+}
+
+
+.z-depth-0 {
+	box-shadow: none !important;
+}
+
+.z-depth-1 {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.z-depth-1-half {
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+.z-depth-2 {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.z-depth-3 {
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.z-depth-4 {
+  box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
+}
+
+.z-depth-5 {
+  box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
+}
+
+.mInput {
+	height: 34px; 
+	padding: 6px 12px; 
+	font-size: 14px; 
+	line-height: 1.428571429; 
+	color: #555555; 
+	outline:none;
+	vertical-align: middle; 
+	background-color: #ffffff; 
+	border: 1px solid #cccccc; 
+	border-radius: 6px; 
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); 
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); 
+	-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; 
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; 
+} 
+
+.mInput:focus { 
+	border-color: #448aff;
+	outline: 0; 
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6); 
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6); 
+} 
+
+.mLineInput, .mLineInputError {
+	background-color: rgba(0, 0, 0, 0);
+	border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	outline: none;
+	border-bottom-color: #448aff;
+	padding: 16px 16px 16px 16px;
+	font-size: 20px; 
+}
+
+.mLineInput:focus, .mLineInputError:focus {
+	border-style: solid;
+	border-color: #448aff;
+	border-width: 2px;
+}
+
+.mLineInputError:focus {
+	border-color: red;
+}
+
+.mLineInputError {
+	border-bottom-color: red;
+}

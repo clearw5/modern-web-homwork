@@ -3,10 +3,13 @@ const DB_NANE = "users";
 var CollectionHelper = require("./util/db_util.js").CollectionHelper;
 var collectionHelper = new CollectionHelper(DB_NANE, DB_NANE);
 
-function getOrQueryExpressionForAttributes(obj){
+function getOrQueryExpressionForAttributes(obj, exceptions){
 	var attributeExpressions = [];
 	for(var key in obj){
 		if(obj.hasOwnProperty(key)){
+			if(!exceptions || exceptions[key]){
+				continue;
+			}
 			var expression = {};
 			expression[key] = obj[key];
 			attributeExpressions.push(expression);
@@ -17,60 +20,65 @@ function getOrQueryExpressionForAttributes(obj){
 
 var userDao = {
 	
-	addUncheck: function(user, callback){
-		collectionHelper.execute(function(){
-			console.log("addUser: %j", user);
-			collectionHelper.collection.insert(user, {safe:true}, function(error, result){
-				if(callback){
-					callback(result);
-				}
-			});
-		});
-	},
-	
-	add: function(user, callback){
-		console.log("add");
-		collectionHelper.execute(function(){
-			userDao.isConflict(user, function(isConflict){
-				if(!isConflict){
-					userDao.addUncheck(user);
-					callback(true);
-				}else{
-					callback(false);
-				}
-			});
-		});
-	},
-	
-	remove: function(userName, callback){
-		collectionHelper.execute(function(){
-			collectionHelper.collection.deleteOne({"name": userName}, function(err, result) {
-				if(callback){
-					callback(result);
-				}
-			});
-		});
-	},
-	
-	isConflict: function(user, callback){
-		collectionHelper.execute(function(){
-			for(var i = 0; i < 4; i++){
-				collectionHelper.collection.findOne(getOrQueryExpressionForAttributes(user), function(error, result){
-					callback(!!result);
+	addUncheck: function(user){
+		console.log("addUser: %j", user);
+		return new Promise(function(resolve, reject){
+			collectionHelper.execute(function(){
+				collectionHelper.collection.insert(user, {safe:true}, function(error, result){
+					if(error){
+						reject(error);
+					}else{
+						resolve(result);
+					}
 				});
-			}
+			});
 		});
+		
 	},
 	
-	getUser: function(name, callback){
-		collectionHelper.execute(function(){
-			collectionHelper.collection.findOne({"name": name}, function(error, result){
-				console.log(result);
-				if(callback){
-					callback(result);
+	add: function(user){
+		return new Promise(function(resolve, reject){
+			userDao.isConflict(user).then(function(isConflict){
+				if(!isConflict){
+					userDao.addUncheck(user).then(resolve, reject);
+				}else{
+					reject({error: 'conflict'});
 				}
 			});
 		});
+	},
+	
+	remove: function(userName){
+		return new Promise(function(resolve, reject){
+			collectionHelper.execute(function(){
+				collectionHelper.collection.deleteOne({"name": userName}, function(err, result) {
+					if(err){
+						reject(err);
+					}else{
+						resolve(result);
+					}
+				});
+			});
+		});
+	},
+	
+	isConflict: function(user){
+		return new Promise(function(resolve, reject){
+			collectionHelper.collection.findOne(getOrQueryExpressionForAttributes(user, {password: true}), function(error, result){
+				resolve(!!result);
+			});
+		});
+	},
+	
+	getUser: function(name){
+		return new Promise(function(resolve){
+			collectionHelper.execute(function(){
+				collectionHelper.collection.findOne({"name": name}, function(error, result){
+					resolve(result);
+				});
+			});
+		});
+		
 	},
 	
 	printAll: function(){
@@ -82,7 +90,9 @@ var userDao = {
 	},
 	
 	close : function(){
-		collectionHelper.close();
+		collectionHelper.execute(function(){
+			collectionHelper.close();
+		});
 	}
 	
 }
