@@ -1,0 +1,227 @@
+
+body {
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+	font-weight: bold;
+}
+
+#at-plus-container {
+	width: 154px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#bottom-positioner {
+	width: 154px;
+	height: 238px;
+	position: absolute;
+	bottom: 28px;
+}
+
+ /* 测试用。当鼠标移到大@范围时触发动画。*/
+#button-big {
+	width: 50px;
+	height: 50px;
+	margin-left: 65px;
+	margin-top: 136px;
+	background-color: #cccccc;
+	border: 1px solid black;
+}
+
+#button {
+	width: 25px;
+	height: 25px;
+	margin-left: 77.5px;
+	margin-top: 148.5px;
+}
+
+#info-bar {
+	width: 0px;
+	height: 0px;
+	position: absolute;
+	left: 90px;
+	top: 161px;
+	border-radius: 50%;
+	background-color: #7e7e7e;
+	overflow: hidden;
+	transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-wekbkit-transition:  all 0.5s;
+	-moz-transition: all 0.5;
+	transition-delay: 0.5s;
+	cursor: pointer;
+}
+
+#button:hover #info-bar {
+	width: 128px;
+	height: 128px;
+	left: 25px;
+	top: 0px;
+	transition-delay: 0.2s;
+}
+
+#message {
+	position: absolute;
+	width: 0px;
+	height: 0px;
+	left: 90px;
+	top: 161px;
+	opacity: 0;
+}
+
+#button:hover #message {
+	left: 20%;
+	top: -30px;
+	width: auto;
+	height: 30px;
+	color: rgba(0, 0, 0, 0.87);
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	opacity: 1;
+}
+
+#control-ring-container {
+	width: 0px;
+	height: 0px;
+	position: absolute;
+	left: 0px;
+	top: 111px;
+}
+
+#button:hover #control-ring-container {
+	width: 122px;
+	height: 127px;
+}
+
+.apb {
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	left: 77.5px;
+	top: 148.5px;
+	border-radius: 50%;
+	background: url("assets/images/atplus_white.png") rgba(152, 155, 211, 1) no-repeat center;
+	background-size: 22px 16px;
+	transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-wekbkit-transition:  all 0.5s;
+	-moz-transition: all 0.5;
+	transition-delay: 0.8s;
+}
+
+#button:hover .apb {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	left: 65px;
+	top: 136px;
+	border-radius: 50%;
+	background: url("assets/images/atplus_green.png") rgba(48, 63, 159, 1) no-repeat center;
+	background-size: 35px 25px;
+	transition-delay: 0s;
+}
+
+
+#sum {
+	text-align: center;
+	font-size: 38px;
+	font-weight: bold;
+	color: #4FC196;
+	line-height: 125px;
+}
+
+
+ /* control-ring-container，也就是下面一圈菜单的子元素样式 */
+
+.button {
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	left: 77.5px;
+	top: 37.5px;
+	list-style: none;
+	border-radius: 50%;
+	background-color: rgba(48, 63, 159, 1) ;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 17px 17px;
+	text-align: center;
+	color: #4FC196;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 32px;
+	cursor: pointer;
+	opacity: 0;
+	transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-wekbkit-transition:  all 0.5s;
+	-moz-transition: all 0.5;
+	transition-delay: 0.5s;
+}
+
+
+#button:hover .button {
+	opacity: 1;
+	transition-delay: 0.2s;
+}
+
+.disable {
+	background-color: #7e7e7e !important;
+}
+
+#button:hover .A {
+	left: 11px;
+	top: 0px;
+}
+
+#button:hover .B {
+	left: 0px;
+	top: 38px;
+}
+
+#button:hover .C {
+	left: 48px;
+	top: 96px;
+}
+
+#button:hover .D {
+	left: 16px;
+	top: 75px;
+}
+
+#button:hover .E {
+	left: 91px;
+	top: 93px;
+}
+
+
+.unread {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	left: 21px;
+	top: -5px;
+	text-align: center;
+	font-size: 16px;
+	color: white;
+	border-radius: 50%;
+	background-color: rgba(249, 55, 49, 1);
+	opacity: 0;
+	transition-delay: 0.5s;
+	line-height: 18px;
+}
+
+.read {
+	display: none;
+}
+
+#button:hover .unread {
+	opacity: 1;
+	transition-delay: 0s;
+}
