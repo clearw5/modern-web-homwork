@@ -1,1 +1,1 @@
-mongod -dbpath E:\YiBin\git\web\Homework-11-login\data\db
+mongod -dbpath E:\YiBin\git\web\Homework-11-login\data\
